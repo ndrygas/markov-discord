@@ -86,6 +86,10 @@ async def on_message(message):
         return
 
     # TODO: replace this with your code
+    if message.content.startswith('hello'):
+        await message.channel.send(make_text(chains))
 
 
-client.run('MTA5NjUyNTc4ODI3MjEzNjMxMg.G1iDMF.pYOyoV6hN7k6hZl2IW9IaiKts4jzy_vJFyCqzU')
+client.run(os.environ['DISCORD_TOKEN'])
+
+# client.run('MTA5NjUyNTc4ODI3MjEzNjMxMg.G1iDMF.pYOyoV6hN7k6hZl2IW9IaiKts4jzy_vJFyCqzU')
