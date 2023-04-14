@@ -2,6 +2,8 @@
 
 import sys
 from random import choice
+import os
+import discord
 
 
 def open_and_read_file(filenames):
@@ -68,3 +70,22 @@ text = open_and_read_file(filenames)
 
 # Get a Markov chain
 chains = make_chains(text)
+
+intents = discord.Intents.default()
+intents.message_content = True
+
+client = discord.Client(intents=intents)
+
+@client.event
+async def on_ready():
+    print(f'Successfully connected! Logged in as {client.user}.')
+
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
+
+    # TODO: replace this with your code
+
+
+client.run('MTA5NjUyNTc4ODI3MjEzNjMxMg.G1iDMF.pYOyoV6hN7k6hZl2IW9IaiKts4jzy_vJFyCqzU')
